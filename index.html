@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="ja"><head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Inter:wght@300;400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>DevOsaka | Ekam Factory Osaka</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "background": "#131313",
-              "surface-container": "#20201f",
-              "primary-fixed": "#d9e2ff",
-              "on-tertiary-fixed": "#1b1c1c",
-              "surface": "#131313",
-              "inverse-on-surface": "#313030",
-              "on-error-container": "#ffdad6",
-              "primary-container": "#0d47a1",
-              "inverse-primary": "#2b5bb5",
-              "surface-dim": "#131313",
-              "error-container": "#93000a",
+              "error": "#ffb4ab",
               "surface-container-lowest": "#0e0e0e",
-              "on-tertiary-container": "#bdbcbc",
               "outline": "#8d909d",
-              "secondary-fixed": "#ffdbd1",
-              "on-error": "#690005",
-              "on-tertiary": "#303031",
-              "secondary": "#ffb5a0",
-              "secondary-container": "#d73b00",
-              "on-secondary-fixed": "#3b0900",
-              "on-secondary-container": "#fffbff",
-              "on-tertiary-fixed-variant": "#464747",
-              "tertiary-fixed-dim": "#c7c6c6",
-              "outline-variant": "#434652",
-              "primary": "#b0c6ff",
+              "error-container": "#93000a",
+              "tertiary-fixed": "#e4e2e2",
               "on-surface-variant": "#c3c6d4",
-              "secondary-fixed-dim": "#ffb5a0",
-              "tertiary": "#c7c6c6",
-              "on-secondary-fixed-variant": "#862200",
-              "on-background": "#e5e2e1",
-              "surface-variant": "#353535",
-              "on-primary-fixed": "#001945",
-              "inverse-surface": "#e5e2e1",
               "on-primary-container": "#a1bbff",
-              "surface-bright": "#393939",
               "surface-tint": "#b0c6ff",
+              "surface-dim": "#131313",
+              "tertiary-fixed-dim": "#c7c6c6",
+              "secondary-fixed": "#ffdbd1",
+              "primary-fixed": "#d9e2ff",
+              "on-error": "#690005",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary-fixed-variant": "#464747",
+              "secondary-fixed-dim": "#ffb5a0",
+              "on-primary-fixed": "#001945",
+              "outline-variant": "#434652",
+              "on-secondary-container": "#fffbff",
+              "on-secondary": "#5f1500",
+              "primary-container": "#0d47a1",
+              "on-primary-fixed-variant": "#00429c",
+              "primary": "#b0c6ff",
+              "secondary": "#ffb5a0",
+              "on-tertiary": "#303031",
+              "on-primary": "#002d6f",
+              "on-error-container": "#ffdad6",
+              "surface-container": "#20201f",
+              "surface": "#131313",
               "on-surface": "#e5e2e1",
               "surface-container-highest": "#353535",
-              "on-secondary": "#5f1500",
               "tertiary-container": "#4c4c4c",
-              "surface-container-low": "#1c1b1b",
+              "inverse-primary": "#2b5bb5",
+              "on-secondary-fixed": "#3b0900",
               "primary-fixed-dim": "#b0c6ff",
-              "on-primary-fixed-variant": "#00429c",
-              "tertiary-fixed": "#e4e2e2",
-              "error": "#ffb4ab",
-              "on-primary": "#002d6f",
+              "secondary-container": "#d73b00",
+              "on-tertiary-fixed": "#1b1c1c",
+              "inverse-surface": "#e5e2e1",
+              "on-background": "#e5e2e1",
+              "on-tertiary-container": "#bdbcbc",
+              "on-secondary-fixed-variant": "#862200",
+              "inverse-on-surface": "#313030",
+              "surface-variant": "#353535",
+              "surface-bright": "#393939",
+              "background": "#131313",
+              "tertiary": "#c7c6c6",
               "surface-container-high": "#2a2a2a"
             },
             fontFamily: {
@@ -74,232 +76,237 @@
       .material-symbols-outlined {
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
       }
-      .machined-edge {
-        border-top: 1px solid rgba(57, 57, 57, 0.4);
-      }
-      .editorial-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
+      .glass-nav {
+        background: rgba(19, 19, 19, 0.4);
+        backdrop-filter: blur(20px);
       }
     </style>
 </head>
 <body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/40 dark:bg-[#131313]/40 backdrop-blur-xl flex justify-between items-center px-8 py-6 max-w-full mx-auto">
-<div class="text-xl font-black tracking-tighter text-white uppercase font-headline">EKAM FACTORY OSAKA</div>
-<div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight">
-<a class="text-[#B0C6FF] border-b-2 border-[#B0C6FF] pb-1" href="#">Home</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="#">About</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="#">Works</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="#">Contact</a>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 border-b border-[#B0C6FF]/10 glass-nav shadow-2xl shadow-blue-900/10">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-black text-[#B0C6FF] tracking-tighter uppercase font-headline">
+                DevOsaka
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-headline tracking-tighter font-bold uppercase text-xs text-[#B0C6FF] border-b-2 border-[#B0C6FF] pb-1" href="#">Portfolio</a>
+<a class="font-headline tracking-tighter font-bold uppercase text-xs text-slate-400 hover:text-[#B0C6FF] transition-colors" href="#">Apps</a>
+<a class="font-headline tracking-tighter font-bold uppercase text-xs text-slate-400 hover:text-[#B0C6FF] transition-colors" href="#">Tech Stack</a>
+<a class="font-headline tracking-tighter font-bold uppercase text-xs text-slate-400 hover:text-[#B0C6FF] transition-colors" href="#">Privacy Policy</a>
 </div>
-<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-md font-headline font-bold text-sm hover:scale-95 active:scale-90 transition-all">
-            Inquiry
-        </button>
+<button class="bg-primary-container text-on-primary-container font-headline tracking-tighter font-bold uppercase text-xs px-6 py-2 rounded-md active:scale-95 transition-transform hover:bg-[#B0C6FF]/5 transition-all duration-300">
+                Contact Me
+            </button>
+</div>
 </nav>
 <!-- Hero Section -->
-<section class="relative h-screen w-full flex items-center overflow-hidden">
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
 <div class="absolute inset-0 z-0">
-<img alt="Modern minimalist developer workspace with high-end laptop and coding monitors" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Cinematic high-quality photograph of a modern minimalist developer workspace at night with blue ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5IbgDbRGCT2r3XwS7UDagk6GOUT0lmTP3LPpDsgySSB2RinCgst56o2ga4nLbEQTYzPqCAm5OCo09c2fy4JqRBdbjcEyBr3k8HezxBIgdbBHJ5mLFMFo7wLnTlEtXzOOB-jWhIy8WwZOgren1vQ45lqoRcUcnzj-VnKwtb30pJ9WI3U3YHm5oBjxhLeI9BvH7UiaDAHgIQzgcLaXplZpu6oJhwypbpV1MkNWWaDR8cznbXv2grPGaimfpeNt1F7oFc2S6j7B1v6s"/>
-<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+<img alt="High-tech developer workspace with mechanical keyboards and multiple monitors" class="w-full h-full object-cover opacity-20 grayscale brightness-50" data-alt="High-tech developer workspace with mechanical keyboards and multiple monitors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAHfGtGM8H3BX1DEXJQ0JF1TthM5vAnP0zQuYG-svZQ6EIIIqoVrw9gHd5qh7jPt29G72_qc2Lcn-VLb7X3lujLlYaVmYoz5ucq3WVCLQVRv4yUigksjRpr4iOsqC-T6iz9MzG85nqXOwJmVNIor38DGqOdAeAalBo6AG2VVbuNUplzCtxDEGdGK0KbBrh1l8lKAQ3brY2bBk6y_bVlJQ-MUPKEetTlL9v1xRGA5LJhsMTXTd_QfWPKQCXcDsVcagv50znSHREgiU"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background"></div>
 </div>
-<div class="relative z-10 px-8 md:px-20 max-w-6xl">
-<span class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.3em] uppercase bg-primary-container/30 border border-primary/20 text-primary rounded-sm">
-                Osaka Precision Engineering
-            </span>
-<h1 class="font-headline text-6xl md:text-8xl font-extrabold leading-[0.9] tracking-tighter text-white mb-8">
-                CRAFTING THE <br/> <span class="text-primary">FUTURE MONOLITH.</span>
-</h1>
-<p class="max-w-xl text-lg text-on-surface-variant leading-relaxed mb-10 border-l-2 border-primary/40 pl-6">
-                大阪から世界へ。0.01mmの精密加工技術と、最先端のAndroidソリューションが交差する、唯一無二のファクトリー。
-            </p>
-<div class="flex flex-wrap gap-4">
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold px-10 py-4 rounded-md shadow-xl hover:shadow-primary/20 transition-all">
-                    VIEW WORKS
-                </button>
-<button class="border border-outline-variant hover:bg-white/5 text-white font-headline font-bold px-10 py-4 rounded-md transition-all">
-                    OUR STORY
-                </button>
-</div>
-</div>
-<div class="absolute bottom-10 right-10 hidden lg:block">
-<div class="flex items-center gap-4 text-primary">
-<span class="text-xs font-bold tracking-widest uppercase vertical-rl rotate-180">Scroll to Explore</span>
-<div class="w-px h-24 bg-gradient-to-b from-primary to-transparent"></div>
-</div>
-</div>
-</section>
-<!-- Services Section -->
-<section class="py-32 px-8 bg-surface-container-low">
-<div class="max-w-7xl mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-<div class="max-w-2xl">
-<h2 class="font-headline text-sm font-bold tracking-[0.4em] text-primary uppercase mb-4">Core Capabilities</h2>
-<h3 class="font-headline text-4xl md:text-5xl font-black text-white leading-none uppercase">Precision Meets <br/>Digital Logic.</h3>
-</div>
-<p class="text-on-surface-variant max-w-md font-body">
-                    物理的な質量を持つ「加工」と、論理の集積である「開発」。私たちは二つの異なる次元を一つの哲学で繋ぎます。
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="flex flex-col gap-4">
+<span class="label-md font-headline text-primary tracking-[0.3em] uppercase text-sm font-bold">Industrial Software Craftsmanship</span>
+<h1 class="display-lg font-headline font-extrabold text-5xl md:text-8xl tracking-tighter text-on-surface leading-tight max-w-4xl">
+                    PRECISION ENGINEERED <span class="text-primary italic">ANDROID</span> EXPERIENCES.
+                </h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mt-6 leading-relaxed">
+                    Based in Osaka, Ekam Factory specializes in translating complex technical mechanics into seamless, playful, and utility-driven mobile applications.
                 </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-<!-- Service 1 -->
-<div class="group bg-surface-container-high p-12 machined-edge relative overflow-hidden transition-all duration-500 hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-5xl text-primary mb-8" data-icon="precision_manufacturing">precision_manufacturing</span>
-<h4 class="font-headline text-2xl font-bold text-white mb-4">精密加工技術</h4>
-<p class="text-on-surface-variant leading-relaxed mb-8">
-                        金属切削、旋盤加工、そして高度な研磨。ミクロン単位の精度を追求する大阪のクラフトマンシップが、あなたのアイデアを物質化します。
-                    </p>
-<div class="flex gap-4">
-<span class="text-xs font-bold px-3 py-1 bg-surface-variant text-primary-fixed">CNC Milling</span>
-<span class="text-xs font-bold px-3 py-1 bg-surface-variant text-primary-fixed">Prototype</span>
-</div>
-</div>
-<!-- Service 2 -->
-<div class="group bg-surface-container-high p-12 machined-edge relative overflow-hidden transition-all duration-500 hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-5xl text-primary mb-8" data-icon="developer_mode_tv">developer_mode_tv</span>
-<h4 class="font-headline text-2xl font-bold text-white mb-4">Androidアプリ開発</h4>
-<p class="text-on-surface-variant leading-relaxed mb-8">
-                        ハードウェアと連動する基幹システムから、洗練されたUIのコンシューマーアプリまで。Kotlin/Javaを用いた強固な設計を提供。
-                    </p>
-<div class="flex gap-4">
-<span class="text-xs font-bold px-3 py-1 bg-surface-variant text-primary-fixed">Kotlin</span>
-<span class="text-xs font-bold px-3 py-1 bg-surface-variant text-primary-fixed">Systems</span>
+<div class="flex gap-4 mt-10">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-md font-bold tracking-tight title-sm shadow-xl shadow-primary/10 hover:shadow-primary/20 transition-all">
+                        View The Works
+                    </button>
+<button class="border border-outline-variant/30 text-primary px-8 py-4 rounded-md font-bold tracking-tight title-sm hover:bg-surface-variant/20 transition-all">
+                        Developer Stack
+                    </button>
 </div>
 </div>
 </div>
+<!-- Decorative Grid Element -->
+<div class="absolute bottom-10 right-10 hidden lg:block border-l border-t border-outline-variant/20 p-8">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-label text-outline uppercase tracking-widest">Lat / Long</div>
+<div class="text-xl font-headline font-bold text-on-surface">34.6937° N, 135.5023° E</div>
+<div class="text-xs font-label text-primary uppercase mt-4">Status: Active</div>
 </div>
-</section>
-<!-- Works Section (Bento Grid) -->
-<section class="py-32 px-8 bg-surface">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-24">
-<h2 class="font-headline text-sm font-bold tracking-[0.4em] text-primary uppercase mb-4">Our Portfolios</h2>
-<h3 class="font-headline text-5xl font-black text-white uppercase italic">The Works</h3>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-<!-- DayCanvas (Large) -->
-<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden bg-surface-container-low machined-edge">
-<img alt="DayCanvas App" class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist colorful calendar interface on smartphone screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy774rIZ7D9j-XcsEVnWEgpQM9SY3hIjpPz2YxDnMKbl0msEJ_rfW4R3d2E-gDX-CzB2o21Fv7TRmsC0kPXA2K-euwWfMGvkQtEAc98Co_oXY8Cha1glZr3sMv1CNNqQqWGumrC74gBF_83y7Mc8lji_iXhV3799MluH-b8X_3-jFUFODkVATfKu-H4QqTNazktbtKg9EvyuCzCtElO0nWEOrikGmVx4pgsRrS1Ac5JU4KadDb8DMANtfgzc6SN_wLcqQ-R9GG5l8"/>
-<div class="absolute inset-0 p-10 flex flex-col justify-end bg-gradient-to-t from-background to-transparent">
-<h4 class="font-headline text-3xl font-bold text-white mb-2">DayCanvas</h4>
-<p class="text-on-surface-variant mb-6 max-w-sm">日々の活動を色鮮やかに描く。直感的なインターフェースを備えたスケジュール管理ツール。</p>
-<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all" href="#">
-                            Google Play <span class="material-symbols-outlined">arrow_forward</span>
+</header>
+<!-- The Works Section (Bento Grid) -->
+<section class="py-24 bg-surface-container-low relative">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20">
+<span class="label-md font-headline text-primary tracking-[0.3em] uppercase text-xs font-bold block mb-4">Case Studies</span>
+<h2 class="display-md font-headline text-4xl md:text-6xl font-black tracking-tighter text-on-surface uppercase">The Works</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- App 1: Chara:Clock (Large) -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-high rounded-lg transition-all duration-500 hover:ring-1 ring-primary/20">
+<div class="h-96 md:h-[500px]">
+<img alt="Abstract colorful light clock interface" class="w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract colorful light clock interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJAfjJRJ6oDV32UXSpzwTws4jDWb6AjXtNXBDbif-A4tfaoSfEWOaCAaa9xI5UWJPkT1Z-Urc1bWIlddPcPewsL8QfVTlEzu5BQHp47ocS3gBtOxzMs6_HIOWUSN4VzMaRpMeAa8t1CtzY-aWhmEaF2A664GlHL0g5tJ4Qx1q85K04j-4UBIkjNaljT4K9KQ__Fo-gDuJaw95oAMeC3mfVVMDGcpyOtz7e4xBvFfcGbGVtd_BecJ9REVMDeP3UdQ0E-iGjcfv98pw"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent flex flex-col justify-end p-10">
+<div class="mb-2 text-xs font-bold font-headline uppercase tracking-[0.2em] text-primary">Utility / Personalization</div>
+<h3 class="text-3xl font-headline font-black text-on-surface mb-2 tracking-tighter uppercase">Chara:Clock</h3>
+<p class="text-on-surface-variant max-w-md mb-6 leading-snug">A unique character alarm app designed to make your mornings more personal and engaging. com.ekamfactory.characlock</p>
+<a class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all" href="#">
+<span>Get on Play Store</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
 </div>
-<!-- Chara:Clock -->
-<div class="group relative overflow-hidden bg-surface-container-low machined-edge aspect-square">
-<div class="absolute inset-0 p-8 flex flex-col justify-between bg-surface-container-low group-hover:bg-primary-container/20 transition-colors">
-<div>
-<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="schedule">schedule</span>
-<h4 class="font-headline text-xl font-bold text-white">Chara:Clock</h4>
+<!-- App 2: Re:cipe -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-high rounded-lg transition-all duration-500 hover:ring-1 ring-primary/20">
+<div class="h-96 md:h-[500px]">
+<img alt="Close up of high quality food ingredients" class="w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 transition-transform duration-700" data-alt="Close up of high quality food ingredients" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzIo1CWB2-Y2EYMs-UvC09AtzWWhxNb_7CooZ5JRx9pz2uBSIwszgXfZFN2PLC1ZYDxUXtuiX_OY6ZZdRRDNpY3D-F2xXy0EX36T24gXijYuX5hRZjIS5S5gU5ODE7TotW2FfuoE7BAHR5OPJojjgh8QpBKGdx4pRXnSEX0WLsmfU8gi3ew09LcCNmZz2wPE7pP7CAlsHaMaqhdN3VLzERsBYvr_UhdRpiRPBT0U5RlKSbxeVHh7eQArsl-mBeYZyOrRX2yo6qERk"/>
 </div>
-<p class="text-xs text-on-surface-variant">個性豊かなキャラクターと共に時を刻む。カスタマイズ可能なアラームアプリ。</p>
-<a class="text-primary text-xs font-bold uppercase tracking-widest" href="#">Store Link</a>
-</div>
-</div>
-<!-- NEKO BAR! -->
-<div class="group relative overflow-hidden bg-surface-container-low machined-edge aspect-square">
-<img alt="NEKO BAR!" class="w-full h-full object-cover opacity-30 group-hover:scale-110 transition-all" data-alt="Stylized neon cat silhouette against dark bar background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1-vJVxPpUvICxJ_beVIF2hOgv01BolBIMb3dYv_5xrNtjf5cuaQBGZiVBs8GpFOsr4TcEvHT_SQ-HCzD_2oM1HtXKOeju7YId7PBJdmMcMqDp86_3BjpStaGiaAOe2bRYsoOPMAQ7xSSsXEE5nnKiil5mvFG6PLUw4L5cEiKksHDc62GO9mDi0oHZ9FEceRexrkyyzHpPQIVLh-J-iNWGKQefNsTe28j3WvSygoR_OSyGXcN8t7mYoNqPYY0aN0oW0duc5Ea4I3A"/>
-<div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background to-transparent">
-<h4 class="font-headline text-xl font-bold text-white">NEKO BAR!</h4>
-<p class="text-xs text-on-surface-variant">癒やしのバーテンダーが贈る、カジュアルエンターテインメント。</p>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent flex flex-col justify-end p-8">
+<div class="mb-2 text-xs font-bold font-headline uppercase tracking-[0.2em] text-primary">AI / Gastronomy</div>
+<h3 class="text-2xl font-headline font-black text-on-surface mb-2 tracking-tighter uppercase">Re:cipe</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">AI-powered recipe management tool for the modern kitchen. com.ekamfactory.ai_recipe</p>
+<a class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all text-sm" href="#">
+<span>View App</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
 </div>
 </div>
-<!-- Re:cipe -->
-<div class="group relative overflow-hidden bg-surface-container-low machined-edge aspect-square">
-<div class="absolute inset-0 p-8 flex flex-col justify-between bg-surface-container-low group-hover:bg-primary-container/20 transition-colors">
-<div>
-<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="restaurant">restaurant</span>
-<h4 class="font-headline text-xl font-bold text-white">Re:cipe</h4>
+<!-- App 3: NEKO BAR! -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-high rounded-lg transition-all duration-500 hover:ring-1 ring-primary/20">
+<div class="h-80">
+<img alt="A cool looking cat at a bar counter" class="w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 transition-transform duration-700" data-alt="A cool looking cat at a bar counter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJfTG5yYES2ZRCTGjjtlQC0lSwK10hzPGlJZX9QSxQk5H2qIgsVzLPSC-LK1QB_nBufjphW9xVhQQBsozVcYNBLKTNFLyHAQNwaT9CNkC4iY5YngRkAwehqbgO6L9PjVMkNb9gbwofasm2hk1HLZvSMyJuaNEaChfx0bQT-CzMljlLZ_bruFt9Q3Eky7sZZkXOuKfTtZOZ_OQAaX9LMMrkr0GfcB7m-fyrlbiEy1M5a5MA5kgmGfQLylFHb4yFgfWd73hVfJ7BLgY"/>
 </div>
-<p class="text-xs text-on-surface-variant">料理の再定義。効率的なレシピ管理と買い物リストの統合ソリューション。</p>
-<a class="text-primary text-xs font-bold uppercase tracking-widest" href="#">Store Link</a>
+<div class="p-8">
+<div class="mb-2 text-xs font-bold font-headline uppercase tracking-[0.2em] text-primary">Entertainment</div>
+<h3 class="text-2xl font-headline font-black text-on-surface mb-2 tracking-tighter uppercase">NEKO BAR!</h3>
+<p class="text-on-surface-variant text-sm mb-6">A casual entertainment experience featuring a professional cat bartender. com.ekamfactory.catbarwalk</p>
+<a class="text-primary font-bold text-sm uppercase tracking-widest hover:text-white transition-colors" href="#">Play Store Link</a>
 </div>
 </div>
-<!-- Pro Noodle Timer -->
-<div class="group relative overflow-hidden bg-surface-container-low machined-edge aspect-square lg:aspect-auto lg:col-span-1">
-<div class="absolute inset-0 p-8 flex flex-col justify-between bg-surface-container-low group-hover:bg-primary-container/20 transition-colors">
-<div>
-<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="timer">timer</span>
-<h4 class="font-headline text-xl font-bold text-white">Pro Noodle Timer</h4>
+<!-- App 4: Pro Noodle Timer -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-high rounded-lg transition-all duration-500 hover:ring-1 ring-primary/20">
+<div class="h-80">
+<img alt="Steaming bowl of gourmet ramen noodles" class="w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 transition-transform duration-700" data-alt="Steaming bowl of gourmet ramen noodles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQZYhD9C-auDqTXnsTITTLgvQ4K51fLrkfZqDXWFsRZQzX7Da-TXXrWq5m3ybEE1m7k-qRAOcs81OdOIiDaRofHmm0ge9J7zhQFqGxSS97rtMrpFZaEXJEz1zPVYFlRrXSpSgaflRBVx8X7FgRotzeoxeHs3rl51-xgbfjQRdljEj7ufq-H1uqbuZxMCouB42v64NUbCQ1XHZvswxDnaAiC6IECZs-UnihKzAO34WTgbyUki0nK3I0suKzjuILal7l7GuTR8Hs2QY"/>
 </div>
-<p class="text-xs text-on-surface-variant">最高の3分間のために。精密な秒読みが約束する究極の一杯。</p>
-<a class="text-primary text-xs font-bold uppercase tracking-widest" href="#">Store Link</a>
+<div class="p-8">
+<div class="mb-2 text-xs font-bold font-headline uppercase tracking-[0.2em] text-primary">Precision Utility</div>
+<h3 class="text-2xl font-headline font-black text-on-surface mb-2 tracking-tighter uppercase">Pro Noodle Timer</h3>
+<p class="text-on-surface-variant text-sm mb-6">Engineered for the perfect 3-minute finish. No more soggy noodles. com.ekamfactory.pronoodletimer</p>
+<a class="text-primary font-bold text-sm uppercase tracking-widest hover:text-white transition-colors" href="#">Play Store Link</a>
+</div>
+</div>
+<!-- App 5: Rhythm Timer -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-high rounded-lg transition-all duration-500 hover:ring-1 ring-primary/20">
+<div class="h-80">
+<img alt="Sound wave pattern on a digital screen" class="w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 transition-transform duration-700" data-alt="Sound wave pattern on a digital screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8l2RQF2oKK1vZ9maBgsNqRv0esSONpjirVOXan68rR8b3hnDSLfbZA1kk0L-_MN-KkhEMKsFx3RhSHlf7uIoQZj4QW8hgjNoMVe01R9KXSGRoNnDGEXFaiDdL3vte1bStUJzJIwnzGhSSFR8_te2lqvJPy8gXb1zFxbVfI4YgWP7gj5s-wvMVuuDYFb2TqwBaH3_XWvk8nAasHn2VeZIoJ6MsJD5EiJab6CNCTTBMdvxem2U3jy6g6xL1iUWaEBkDx011pUGdz2M"/>
+</div>
+<div class="p-8">
+<div class="mb-2 text-xs font-bold font-headline uppercase tracking-[0.2em] text-primary">Audio / Sync</div>
+<h3 class="text-2xl font-headline font-black text-on-surface mb-2 tracking-tighter uppercase">Rhythm Timer</h3>
+<p class="text-on-surface-variant text-sm mb-6">A rhythmic alarm and timer experience designed for deep flow. com.ekamfactory.rhythmtimer</p>
+<a class="text-primary font-bold text-sm uppercase tracking-widest hover:text-white transition-colors" href="#">Play Store Link</a>
+</div>
+</div>
+<!-- App 6: Silent Vibe Alarm (Featured/Extra Info) -->
+<div class="md:col-span-12 group relative overflow-hidden bg-surface-container-lowest border border-outline-variant/10 rounded-lg transition-all duration-500 hover:bg-surface-container-high">
+<div class="flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/3 h-64 md:h-80">
+<img alt="Macro shot of a vibrating smartphone screen" class="w-full h-full object-cover grayscale opacity-20" data-alt="Macro shot of a vibrating smartphone screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDAq405VbYxMz6kuk-gfzG0pn52kaESiJW_L8CKaG1EWIrvutJzR1B8NhbuSaTb_Q3Hcw8FtQjw_WhifUKHc1UxZ8NSOpiIoeWIV9Sj0rcMeQCPg7F2DQXTUHD0cELMup3FCiCZzsa9sYuMqqyk8NKDr-I9L5aBD7Bfp7Vv1Cq3k6DMZc63WdIY_yx-rDREKLglIrzkNztfZSAzLAy_XBrH5Z7vH-OUqtpaZTe2Wu3TS0IDYZeo_PT1DJyL6CK2-Jv51rSWchXL5s"/>
+</div>
+<div class="w-full md:w-2/3 p-10">
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">New Release</span>
+<span class="text-xs font-bold font-headline uppercase tracking-[0.2em] text-outline">Minimalism</span>
+</div>
+<h3 class="text-3xl font-headline font-black text-on-surface mb-4 tracking-tighter uppercase">Silent Vibe Alarm</h3>
+<p class="text-on-surface-variant max-w-2xl mb-8">Discreet vibration-based alarm system for non-intrusive waking. Perfect for shared spaces and heavy sleepers who need tactile feedback. com.ekamfactory.silentvibealarm</p>
+<div class="flex gap-6">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-md font-bold text-sm tracking-tight">Direct Play Store Link</button>
+<button class="text-on-surface-variant font-bold text-sm hover:text-primary transition-colors">Documentation</button>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Stats Section (Precision Grid) -->
-<section class="py-32 px-8 overflow-hidden">
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-<div class="relative">
-<div class="aspect-[4/5] bg-surface-container-high relative z-10 machined-edge overflow-hidden">
-<img alt="Precision Metal Work" class="w-full h-full object-cover" data-alt="Extreme macro shot of brushed steel surface with geometric patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBa5w6KfM8xjwKftTl4B3S_lXrXJhMHc7s1hpnqe41xDtO4YM0A6OZb62vO6HcysUU_e3NgfAkB89AiC9isiet4oyCrQ8vgeMrPolxIq1_uWvM10wYtRUqtqwGosnvb1HWskXA2M0K-c0Lrdm4rW0Pe-4EH6SisXajNZ0IsTm9FFkCUWM1P82ndwwkG4EX5llEQioT5rCflPbqj9cRpF5rIzCPiew37HzzgwCQ_fgR-75F_n8Rc57-2Lj17wPHOeG8S0y5T8lfy8s"/>
-</div>
-<!-- Precision Label Overlap -->
-<div class="absolute -right-12 top-1/2 -translate-y-1/2 z-20 bg-primary p-8 hidden md:block">
-<div class="font-headline text-6xl font-black text-on-primary leading-none">0.01</div>
-<div class="font-headline text-sm font-bold tracking-widest uppercase text-on-primary mt-2">MM Precision</div>
-</div>
-<div class="absolute -left-10 -bottom-10 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl z-0"></div>
-</div>
-<div class="space-y-12">
+<!-- Stats/Precision Grid Section -->
+<section class="py-24 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 <div>
-<h2 class="font-headline text-sm font-bold tracking-[0.4em] text-primary uppercase mb-6">Industrial Specs</h2>
-<h3 class="font-headline text-4xl font-extrabold text-white leading-tight uppercase">High-End Quality <br/>From Osaka Factory</h3>
+<span class="label-md font-headline text-primary tracking-[0.3em] uppercase text-xs font-bold block mb-4">The Standard</span>
+<h2 class="display-sm font-headline text-4xl font-black tracking-tighter text-on-surface uppercase mb-6 leading-tight">MACHINED TO PERFECTION.<br/>CODE AS CRAFT.</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-10">
+                At Ekam Factory Osaka, we don't just "develop" apps. We engineer them. Every byte is optimized, every animation is polished, and every user journey is stress-tested against real-world chaos.
+            </p>
+<div class="grid grid-cols-2 gap-10">
+<div class="border-l-2 border-primary pl-6">
+<div class="text-3xl font-headline font-black text-on-surface">99.9%</div>
+<div class="text-xs font-label text-outline uppercase tracking-widest mt-1">Crash-Free Rate</div>
 </div>
-<div class="grid grid-cols-2 gap-8">
-<div class="border-t border-outline-variant pt-6">
-<div class="text-3xl font-headline font-bold text-white mb-2">20+</div>
-<div class="text-xs font-bold tracking-widest uppercase text-on-surface-variant">Years Experience</div>
-</div>
-<div class="border-t border-outline-variant pt-6">
-<div class="text-3xl font-headline font-bold text-white mb-2">500k+</div>
-<div class="text-xs font-bold tracking-widest uppercase text-on-surface-variant">App Downloads</div>
-</div>
-<div class="border-t border-outline-variant pt-6">
-<div class="text-3xl font-headline font-bold text-white mb-2">100%</div>
-<div class="text-xs font-bold tracking-widest uppercase text-on-surface-variant">Japan Made</div>
-</div>
-<div class="border-t border-outline-variant pt-6">
-<div class="text-3xl font-headline font-bold text-white mb-2">24/7</div>
-<div class="text-xs font-bold tracking-widest uppercase text-on-surface-variant">System Monitoring</div>
+<div class="border-l-2 border-primary pl-6">
+<div class="text-3xl font-headline font-black text-on-surface">0.01s</div>
+<div class="text-xs font-label text-outline uppercase tracking-widest mt-1">UI Response Latency</div>
 </div>
 </div>
-<p class="text-on-surface-variant leading-relaxed italic">
-                    「道具」としての完成度。それが私たちの誇りです。形あるもの、形なきもの、そのすべてに精密さを。
+</div>
+<div class="relative group">
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden">
+<img alt="Close up of high precision mechanical parts" class="w-full h-full object-cover grayscale brightness-75 group-hover:scale-105 transition-transform duration-1000" data-alt="Close up of high precision mechanical parts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0ZE0nwyNId7adIzcOFqoSf9cia2QaJj43ykkMTkelkP-yFU8r5c175JVB2umgRrUcv2kvvuwwwZL-evxzCAwO7F8GmhJ4qzkAaws9HOLHmYwWNs6nvUNf6z5PRQG0NF9tC3BXlouMZZwd4Xk0LHEtzUn3Dy5ZrWLGjDJIhVIMj_GIZFhvVaNtxKgHxhYTqBfiFMFJjfzrrwer7hIw1c2No66yEn9YphgpIztDRQ3S2IRSdWIESoY0RNH_Xq_aWPuJyFwNppaWnbE"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-primary text-on-primary p-8 md:p-12 shadow-2xl">
+<span class="block text-4xl md:text-6xl font-headline font-black leading-none">OSAKA</span>
+<span class="block text-sm uppercase tracking-[0.4em] font-bold opacity-80 mt-2">Precision HQ</span>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 bg-surface-container-lowest overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 flex flex-col items-center text-center">
+<div class="mb-12">
+<h2 class="text-5xl md:text-8xl font-headline font-black tracking-tighter text-on-surface uppercase leading-none">Ready to start?</h2>
+<p class="text-on-surface-variant text-xl mt-8 max-w-2xl mx-auto">
+                    Let's discuss your next high-performance Android project. Available for select global collaborations.
                 </p>
 </div>
+<a class="group relative inline-flex items-center gap-4 text-2xl md:text-4xl font-headline font-bold text-primary hover:text-white transition-colors" href="mailto:hello@ekamfactory.osaka">
+<span>HELLO@EKAMFACTORY.OSAKA</span>
+<span class="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</a>
+<div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-12 text-left w-full border-t border-outline-variant/10 pt-16">
+<div>
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest mb-4">Inquiries</h4>
+<p class="text-on-surface">Project Discovery<br/>Consultation<br/>Technical Audit</p>
 </div>
-</section>
-<!-- CTA Section -->
-<section class="py-32 px-8">
-<div class="max-w-5xl mx-auto bg-surface-container-highest p-12 md:p-24 machined-edge text-center relative overflow-hidden">
-<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-3xl rounded-full"></div>
-<div class="relative z-10">
-<h2 class="font-headline text-4xl md:text-6xl font-black text-white mb-8 leading-[1.1] uppercase">Ready to Start <br/>the Project?</h2>
-<p class="text-on-surface-variant text-lg mb-12 max-w-xl mx-auto">加工のご依頼、アプリ開発の相談、その他お問い合わせはこちらから。私たちのエンジニアが直接お答えします。</p>
-<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-extrabold px-12 py-5 rounded-md text-lg tracking-widest hover:scale-105 transition-all shadow-2xl shadow-primary/20">
-                    CONTACT US NOW
-                </button>
+<div>
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest mb-4">Location</h4>
+<p class="text-on-surface">Umeda District<br/>Osaka City, Japan<br/>Remote/Global</p>
+</div>
+<div>
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest mb-4">Timezone</h4>
+<p class="text-on-surface">JST (UTC+9)<br/>Mon — Fri<br/>09:00 — 18:00</p>
+</div>
+<div>
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest mb-4">Social</h4>
+<p class="text-on-surface">GitHub<br/>LinkedIn<br/>Play Store</p>
+</div>
 </div>
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-[#131313] dark:bg-[#131313] w-full border-t border-white/10 flex flex-col md:flex-row justify-between items-center px-12 py-10">
+<footer class="w-full bg-[#1C1B1B] border-t border-[#B0C6FF]/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-7xl mx-auto">
 <div class="mb-8 md:mb-0">
-<div class="text-lg font-bold text-white mb-4">EKAM FACTORY OSAKA</div>
-<div class="font-['Inter'] text-xs tracking-widest uppercase text-[#B0C6FF]">
-                © 2024 EKAM FACTORY OSAKA. PRECISION MACHINING EXCELLENCE.
-            </div>
+<div class="text-lg font-bold text-slate-200 font-headline mb-2 uppercase tracking-tighter">DevOsaka</div>
+<p class="font-inter text-sm tracking-wide text-slate-500">© 2024 EKAM FACTORY OSAKA. PRECISION ENGINEERED.</p>
 </div>
-<div class="flex gap-8 font-['Inter'] text-xs tracking-widest uppercase">
-<a class="text-slate-500 hover:text-[#B0C6FF] transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="text-slate-500 hover:text-[#B0C6FF] transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
-<a class="text-slate-500 hover:text-[#B0C6FF] transition-colors opacity-80 hover:opacity-100" href="#">Cookie Policy</a>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#B0C6FF] transition-colors hover:translate-x-1 transition-transform" href="#">Privacy Policy</a>
+<a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#B0C6FF] transition-colors hover:translate-x-1 transition-transform" href="#">Terms of Service</a>
+<a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#B0C6FF] transition-colors hover:translate-x-1 transition-transform" href="#">Github</a>
+<a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#B0C6FF] transition-colors hover:translate-x-1 transition-transform" href="#">LinkedIn</a>
+<a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#B0C6FF] transition-colors hover:translate-x-1 transition-transform" href="#">Play Store</a>
+</div>
 </div>
 </footer>
 </body></html>
