@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ekamfactory</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
+/* ─── BASE ─── */
 :root{
   --bg:#08090e;
   --card:#0f1018;
@@ -25,9 +28,53 @@ body{
   color:var(--text);
 }
 
-/* HERO */
+/* ─── NAV ─── */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  backdrop-filter:blur(20px);
+  background:rgba(8,9,14,.85);
+  border-bottom:1px solid var(--border);
+  z-index:100;
+}
+.nav-in{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-weight:800;
+  color:var(--accent);
+}
+
+.nav-links{
+  display:flex;
+  gap:10px;
+}
+
+.nl{
+  font-size:.75rem;
+  padding:6px 12px;
+  border-radius:6px;
+}
+
+.nl.cta{
+  border:1px solid var(--accent);
+  color:var(--accent);
+}
+
+/* ←ここが重要：スマホでも消さない */
+@media(max-width:700px){
+  .nl{display:block;}
+}
+
+/* ─── HERO ─── */
 .hero{
-  min-height:80vh;
+  min-height:90vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -36,7 +83,6 @@ body{
 }
 .hero h1{
   font-size:clamp(2.5rem,6vw,5rem);
-  font-family:'Bricolage Grotesque',sans-serif;
 }
 .hero em{
   background:linear-gradient(90deg,#7b9fff,#f5c06b);
@@ -44,20 +90,19 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-/* GRID */
+/* ─── GRID ─── */
 .apps{
   max-width:1200px;
   margin:auto;
   padding:60px 20px;
 }
-
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px;
 }
 
-/* CARD */
+/* ─── CARD ─── */
 .card{
   background:var(--card);
   border:1px solid var(--border);
@@ -73,17 +118,36 @@ body{
 }
 
 /* FEATURED */
-.card.featured{
-  grid-column:span 2;
+.ca{grid-column:span 4;}
+.cb{grid-column:span 2;}
+.cc{grid-column:span 2;}
+.cd{grid-column:span 3;}
+
+/* ←ここがズレ修正の核心 */
+.ca .inner{
+  display:flex;
+  height:100%;
+}
+.ca .thumb{
+  width:55%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.ca .thumb img{
+  max-height:100%;
+  object-fit:contain;
+}
+.ca .cbody{
+  border-left:1px solid var(--border);
 }
 
 /* IMAGE */
 .thumb{
-  height:260px;
+  height:250px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#0b0c12;
 }
 .thumb img{
   max-width:100%;
@@ -98,109 +162,106 @@ body{
   flex-direction:column;
   gap:10px;
 }
-
-.aname{
-  font-weight:700;
-  font-size:1.1rem;
-  font-family:'Bricolage Grotesque',sans-serif;
-}
-
+.aname{font-weight:700;}
 .adesc{
   font-size:.85rem;
   color:var(--sub);
-  line-height:1.6;
 }
-
 .alink{
   margin-top:auto;
   font-size:.75rem;
   color:var(--accent);
-  text-decoration:none;
 }
 
-/* MOBILE */
-@media(max-width:700px){
-  .card.featured{
-    grid-column:span 1;
-  }
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .ca,.cb,.cc,.cd{grid-column:span 6;}
+  .ca .inner{flex-direction:column;}
+  .ca .thumb{width:100%;}
+  .ca .cbody{border-left:none;border-top:1px solid var(--border);}
 }
+
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <div>
-    <h1>日常を、<br><em>少し便利</em>に。</h1>
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <div class="logo">ekamfactory</div>
+    <div class="nav-links">
+      <!-- 修正：CTA化 -->
+      <a href="privacy-policy.html" class="nl cta">プライバシーポリシー</a>
+      <a href="mailto:ekamfactory.osaka@gmail.com" class="nl cta">お問い合わせ</a>
+    </div>
   </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>日常を、<br><em>少し便利</em>に。</h1>
 </section>
 
+<!-- APPS -->
 <section class="apps">
 <div class="grid">
 
-<!-- featured -->
-<div class="card featured">
-  <div class="thumb">
-    <img src="characlock1.png">
-  </div>
-  <div class="cbody">
-    <div class="aname">Chara:Clock</div>
-    <div class="adesc">キャラクターで彩るカスタマイズ可能なフリップ時計アプリ。</div>
-    <a class="alink" href="https://play.google.com/store/apps/details?id=com.ekamfactory.characlock">Play Store</a>
+<!-- CharaClock -->
+<div class="card ca">
+  <div class="inner">
+    <div class="thumb">
+      <img src="characlock1.png">
+    </div>
+    <div class="cbody">
+      <div class="aname">Chara:Clock</div>
+      <div class="adesc">キャラクターで彩るフリップ時計。</div>
+      <a class="alink" href="https://play.google.com/store/apps/details?id=com.ekamfactory.characlock">Play Store</a>
+    </div>
   </div>
 </div>
 
-<div class="card">
+<!-- 他カード -->
+<div class="card cb">
   <div class="thumb"><img src="daycanvas1.png"></div>
   <div class="cbody">
     <div class="aname">DayCanvas</div>
-    <div class="adesc">Googleカレンダー連携＋写真添付で毎日を見やすく。</div>
-    <a class="alink" href="#">Play Store</a>
+    <div class="adesc">カレンダー×写真。</div>
   </div>
 </div>
 
-<div class="card">
+<div class="card cc">
   <div class="thumb"><img src="nekobar1.png"></div>
   <div class="cbody">
     <div class="aname">NekoBar</div>
-    <div class="adesc">猫が案内してくれる便利ユーティリティバー。</div>
-    <a class="alink" href="#">Play Store</a>
   </div>
 </div>
 
-<div class="card">
+<div class="card cc">
   <div class="thumb"><img src="tempocoach1.png"></div>
   <div class="cbody">
     <div class="aname">Tempo Coach</div>
-    <div class="adesc">トレーニング用リズムタイマー。</div>
-    <a class="alink" href="#">Play Store</a>
   </div>
 </div>
 
-<div class="card">
+<div class="card cc">
   <div class="thumb"><img src="pronoodletimer1.png"></div>
   <div class="cbody">
     <div class="aname">ProNoodleTimer</div>
-    <div class="adesc">完璧な麺タイミングを実現。</div>
-    <a class="alink" href="#">Play Store</a>
   </div>
 </div>
 
-<div class="card">
+<div class="card cd">
   <div class="thumb"><img src="recipe1.png"></div>
   <div class="cbody">
     <div class="aname">Re:cipe</div>
-    <div class="adesc">AIでレシピ管理。</div>
-    <a class="alink" href="#">Play Store</a>
   </div>
 </div>
 
-<div class="card">
+<div class="card cd">
   <div class="thumb"><img src="silentvibe.jpg"></div>
   <div class="cbody">
     <div class="aname">Silent Vibe Alarm</div>
-    <div class="adesc">振動だけの目覚まし。</div>
-    <a class="alink" href="#">Play Store</a>
   </div>
 </div>
 
