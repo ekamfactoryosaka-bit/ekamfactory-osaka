@@ -4,195 +4,439 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ekamfactory</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 
-/* ─── BASE ─── */
-:root{
-  --bg:#08090e;
-  --card:#0f1018;
-  --card-h:#141520;
-  --accent:#7b9fff;
-  --text:#f0eef8;
-  --sub:#a09eb8;
-  --border:rgba(255,255,255,.06);
+/* ─── TOKENS ─── */
+:root {
+  --bg:            #08090e;
+  --bg-card:       #0f1018;
+  --bg-card-hover: #141520;
+  --accent:        #7b9fff;
+  --accent-soft:   rgba(123,159,255,0.11);
+  --accent-amber:  #f5c06b;
+  --text:          #f0eef8;
+  --text-mid:      #a09eb8;
+  --text-dim:      #6a6880;
+  --border:        rgba(255,255,255,0.06);
+  --border-hover:  rgba(123,159,255,0.22);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+/* ─── RESET ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 body{
   font-family:'DM Sans',sans-serif;
   background:var(--bg);
   color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;}
+
+/* ─── PAGE-LOAD BAR ─── */
+.load-bar{
+  position:fixed;top:0;left:0;
+  height:2px;width:100%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-amber));
+  z-index:9999;transform-origin:left;transform:scaleX(0);
+  animation:loadBar 1s cubic-bezier(.4,0,.2,1) .05s forwards;
+  border-radius:0 2px 2px 0;
+}
+@keyframes loadBar{
+  0%{transform:scaleX(0);opacity:1;}
+  80%{transform:scaleX(1);opacity:1;}
+  100%{transform:scaleX(1);opacity:0;}
+}
+
+/* ─── CURSOR (desktop) ─── */
+@media(pointer:fine){
+  *{cursor:none!important;}
+  #cur-dot{
+    position:fixed;top:0;left:0;
+    width:6px;height:6px;
+    background:var(--accent);
+    border-radius:50%;
+    pointer-events:none;z-index:9001;
+    transform:translate(-50%,-50%);
+    transition:background .2s;
+  }
+  #cur-ring{
+    position:fixed;top:0;left:0;
+    width:36px;height:36px;
+    border:1px solid rgba(123,159,255,.45);
+    border-radius:50%;
+    pointer-events:none;z-index:9000;
+    transform:translate(-50%,-50%);
+    transition:width .3s,height .3s,border-color .3s;
+  }
+  #cur-ring.big{width:50px;height:50px;border-color:rgba(123,159,255,.25);}
 }
 
 /* ─── NAV ─── */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  backdrop-filter:blur(20px);
-  background:rgba(8,9,14,.85);
+  position:fixed;top:0;width:100%;z-index:500;
   border-bottom:1px solid var(--border);
-  z-index:100;
+  background:rgba(8,9,14,.82);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  transition:background .3s;
 }
 .nav-in{
-  max-width:1200px;
-  margin:auto;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  max-width:1220px;margin:0 auto;padding:0 2.5rem;
+  height:62px;display:flex;align-items:center;justify-content:space-between;
 }
 .logo{
-  font-weight:800;
-  color:var(--accent);
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:800;font-size:1.05rem;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--accent);line-height:1;
 }
-
-.nav-links{
-  display:flex;
-  gap:10px;
-}
-
+.nav-links{display:flex;align-items:center;gap:.375rem;}
 .nl{
-  font-size:.75rem;
-  padding:6px 12px;
-  border-radius:6px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.72rem;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;
+  color:var(--text-dim);
+  padding:.42rem .85rem;border-radius:8px;
+  transition:color .2s,background .2s;
 }
-
-.nl.cta{
-  border:1px solid var(--accent);
-  color:var(--accent);
-}
-
-/* ←ここが重要：スマホでも消さない */
-@media(max-width:700px){
-  .nl{display:block;}
-}
+.nl:hover{color:var(--text);background:var(--accent-soft);}
+.nl.cta{color:var(--accent);border:1px solid rgba(123,159,255,.22);}
+.nl.cta:hover{border-color:rgba(123,159,255,.5);background:var(--accent-soft);}
 
 /* ─── HERO ─── */
 .hero{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:100px 20px;
+  position:relative;
+  min-height:88vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  padding:100px 2.5rem 60px;
 }
-.hero h1{
-  font-size:clamp(2.5rem,6vw,5rem);
+
+/* animated orbs */
+.orb{
+  position:absolute;border-radius:50%;
+  filter:blur(90px);pointer-events:none;will-change:transform;
 }
-.hero em{
-  background:linear-gradient(90deg,#7b9fff,#f5c06b);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.orb-1{
+  width:560px;height:460px;
+  background:rgba(80,120,255,.13);
+  top:-100px;left:-80px;
+  animation:o1 18s ease-in-out infinite alternate;
+}
+.orb-2{
+  width:420px;height:500px;
+  background:rgba(100,180,200,.07);
+  bottom:-60px;right:-60px;
+  animation:o2 22s ease-in-out infinite alternate;
+}
+.orb-3{
+  width:320px;height:320px;
+  background:rgba(200,140,255,.08);
+  top:40%;left:55%;
+  animation:o3 14s ease-in-out infinite alternate;
+}
+@keyframes o1{from{transform:translate(0,0) scale(1);}to{transform:translate(80px,60px) scale(1.12);}}
+@keyframes o2{from{transform:translate(0,0);}to{transform:translate(-60px,-80px) scale(1.08);}}
+@keyframes o3{from{transform:translate(0,0);}to{transform:translate(-50px,40px) scale(.88);}}
+
+/* dot grid overlay */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:38px 38px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent);
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;z-index:1;
+  text-align:center;max-width:840px;
+}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.7rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);
+  border:1px solid rgba(123,159,255,.22);
+  background:rgba(123,159,255,.05);
+  padding:.38rem 1rem .38rem .75rem;
+  border-radius:100px;margin-bottom:2.2rem;
+}
+.epulse{
+  width:6px;height:6px;
+  background:var(--accent);border-radius:50%;
+  box-shadow:0 0 10px var(--accent);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.35;transform:scale(.7);}
+}
+
+.hero-title{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(3.2rem,7vw,6rem);
+  font-weight:800;line-height:1.0;
+  letter-spacing:-.03em;
+  color:var(--text);margin-bottom:1.5rem;
+}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-amber) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-sub{
+  font-size:1.05rem;font-weight:300;
+  color:var(--text-mid);line-height:1.8;
+  margin-bottom:2.8rem;
+}
+
+.hero-stats{
+  display:inline-flex;align-items:center;
+  border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  background:rgba(15,16,24,.65);
+}
+.stat{display:flex;flex-direction:column;align-items:center;padding:.7rem 1.8rem;gap:.12rem;}
+.stat+.stat{border-left:1px solid var(--border);}
+.stat-n{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:1rem;font-weight:700;
+  color:var(--text);letter-spacing:-.02em;
+}
+.stat-l{
+  font-size:.63rem;font-weight:500;
+  color:var(--text-dim);
+  letter-spacing:.1em;text-transform:uppercase;
+}
+
+/* ─── MARQUEE ─── */
+.mq-wrap{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;padding:.9rem 0;
+  white-space:nowrap;position:relative;
+}
+.mq-wrap::before,.mq-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.mq-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+.mq-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+.mq-track{
+  display:inline-flex;
+  animation:mqscroll 30s linear infinite;
+}
+.mq-track:hover{animation-play-state:paused;}
+@keyframes mqscroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.mq-inner{display:flex;align-items:center;}
+.mq-item{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.76rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-dim);padding:0 2rem;
+  transition:color .2s;
+}
+.mq-item:hover{color:var(--text-mid);}
+.mq-sep{color:var(--accent);font-size:.45rem;opacity:.6;}
+
+/* ─── APPS SECTION ─── */
+.apps{
+  max-width:1220px;margin:0 auto;
+  padding:5rem 2.5rem 7rem;
+}
+.sec-bar{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:2rem;
+}
+.sec-tag{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.68rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);
+}
+.sec-line{flex:1;height:1px;background:var(--border);}
+.sec-cnt{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.68rem;font-weight:600;
+  letter-spacing:.1em;color:var(--text-dim);opacity:.45;
 }
 
 /* ─── GRID ─── */
-.apps{
-  max-width:1200px;
-  margin:auto;
-  padding:60px 20px;
-}
 .grid{
   display:grid;
   grid-template-columns:repeat(6,1fr);
-  gap:10px;
-}
-
-/* ─── CARD ─── */
-.card{
-  background:var(--card);
+  gap:1px;
+  background:var(--border);
   border:1px solid var(--border);
-  border-radius:16px;
+  border-radius:20px;
   overflow:hidden;
-  transition:.3s;
-  display:flex;
-  flex-direction:column;
-}
-.card:hover{
-  background:var(--card-h);
-  transform:translateY(-4px);
 }
 
-/* FEATURED */
+/* span classes */
 .ca{grid-column:span 4;}
 .cb{grid-column:span 2;}
 .cc{grid-column:span 2;}
 .cd{grid-column:span 3;}
 
-/* ←ここがズレ修正の核心 */
-.ca .inner{
-  display:flex;
-  height:100%;
+/* ─── CARD ─── */
+.card{
+  background:var(--bg-card);
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  transition:background .3s;
 }
-.ca .thumb{
-  width:55%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.ca .thumb img{
-  max-height:100%;
-  object-fit:contain;
-}
-.ca .cbody{
-  border-left:1px solid var(--border);
-}
+.card:hover{background:var(--bg-card-hover);}
 
-/* IMAGE */
-.thumb{
-  height:250px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* border glow */
+.card::after{
+  content:'';position:absolute;inset:0;
+  border:1px solid transparent;
+  pointer-events:none;
+  transition:border-color .3s;
 }
+.card:hover::after{border-color:var(--border-hover);}
+
+/* screenshot */
+.thumb{position:relative;overflow:hidden;flex-shrink:0;}
+.thumb-blur{
+  position:absolute;inset:-30px;
+  background-size:cover;background-position:center;
+  filter:blur(28px);transform:scale(1.2);
+  opacity:.35;transition:opacity .4s;
+}
+.card:hover .thumb-blur{opacity:.55;}
 .thumb img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
+  position:relative;z-index:1;
+  width:100%;height:100%;
+  object-fit:contain;padding:10px;
+  filter:drop-shadow(0 10px 28px rgba(0,0,0,.5));
+  transition:transform .55s cubic-bezier(.25,.46,.45,.94);
 }
+.card:hover .thumb img{transform:translateY(-4px) scale(1.03);}
 
-/* BODY */
+/* body */
 .cbody{
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+  padding:1.35rem 1.55rem 1.55rem;
+  border-top:1px solid var(--border);
+  display:flex;flex-direction:column;flex:1;
 }
-.aname{font-weight:700;}
+.aname{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:1.08rem;font-weight:700;
+  letter-spacing:-.02em;color:var(--text);
+  margin-bottom:.38rem;line-height:1.15;
+}
 .adesc{
-  font-size:.85rem;
-  color:var(--sub);
+  font-size:.83rem;font-weight:300;
+  color:var(--text-mid);line-height:1.6;
+  flex:1;margin-bottom:1.2rem;
 }
 .alink{
-  margin-top:auto;
-  font-size:.75rem;
-  color:var(--accent);
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.69rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);align-self:flex-start;
+  padding:.42rem .82rem .42rem .6rem;
+  border:1px solid rgba(123,159,255,.22);
+  border-radius:7px;
+  background:rgba(123,159,255,.04);
+  transition:border-color .2s,background .2s,gap .2s;
+}
+.alink:hover{
+  border-color:rgba(123,159,255,.48);
+  background:var(--accent-soft);
+  gap:9px;
+}
+.alink svg{
+  width:11px;height:11px;
+  stroke:currentColor;fill:none;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .2s;
+}
+.alink:hover svg{transform:translate(2px,-2px);}
+
+/* ── featured variant ── */
+.ca .inner{display:flex;flex-direction:row;height:100%;}
+.ca .thumb{width:52%;height:340px;}
+.ca .cbody{
+  border-top:none;border-left:1px solid var(--border);
+  padding:2rem 2rem;justify-content:flex-end;
+}
+.ca .aname{font-size:1.45rem;margin-bottom:.55rem;}
+.ca .adesc{font-size:.88rem;flex:0;margin-bottom:1.7rem;}
+.feat-tag{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.6rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-amber);
+  border:1px solid rgba(245,192,107,.25);
+  padding:.22rem .55rem;border-radius:4px;
+  display:inline-block;margin-bottom:.8rem;
+  background:rgba(245,192,107,.06);
+}
+
+/* card heights */
+.cb .thumb{height:100%;min-height:240px;}
+.cc .thumb{height:220px;}
+.cd .thumb{height:255px;}
+
+/* ─── REVEAL ─── */
+.rv{
+  opacity:0;transform:translateY(22px);
+  transition:opacity .75s ease,transform .75s ease;
+}
+.rv.on{opacity:1;transform:none;}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:1px solid var(--border);
+  text-align:center;padding:2.5rem;
+  font-size:.78rem;color:var(--text-dim);
+  letter-spacing:.05em;opacity:.65;
 }
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:900px){
-  .ca,.cb,.cc,.cd{grid-column:span 6;}
+@media(max-width:1024px){
+  .ca,.cb{grid-column:span 6;}
   .ca .inner{flex-direction:column;}
-  .ca .thumb{width:100%;}
-  .ca .cbody{border-left:none;border-top:1px solid var(--border);}
+  .ca .thumb{width:100%;height:260px;}
+  .ca .cbody{border-left:none;border-top:1px solid var(--border);padding:1.35rem 1.55rem 1.55rem;}
+  .ca .aname{font-size:1.2rem;}
+  .cc{grid-column:span 3;}
+  .cd{grid-column:span 3;}
 }
-
+@media(max-width:700px){
+  .nl:not(.cta){display:none;}
+  .hero-title{font-size:2.8rem;}
+  .hero-stats{flex-direction:column;}
+  .stat+.stat{border-left:none;border-top:1px solid var(--border);}
+  .cc,.cd{grid-column:span 6;}
+  .apps{padding:3rem 1.25rem 5rem;}
+}
 </style>
 </head>
-
 <body>
 
+<div class="load-bar"></div>
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
 <!-- NAV -->
-<nav>
+<nav id="nav">
   <div class="nav-in">
     <div class="logo">ekamfactory</div>
     <div class="nav-links">
-      <!-- 修正：CTA化 -->
-      <a href="privacy-policy.html" class="nl cta">プライバシーポリシー</a>
+      <a href="privacy-policy.html" class="nl">プライバシーポリシー</a>
       <a href="mailto:ekamfactory.osaka@gmail.com" class="nl cta">お問い合わせ</a>
     </div>
   </div>
@@ -200,73 +444,248 @@ nav{
 
 <!-- HERO -->
 <section class="hero">
-  <h1>日常を、<br><em>少し便利</em>に。</h1>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-content rv">
+    <div class="eyebrow">
+      <div class="epulse"></div>
+      Android Apps &mdash; Osaka
+    </div>
+    <h1 class="hero-title">日常を、<br><em>少し便利</em>に。</h1>
+    <p class="hero-sub">使いやすさと実用性にこだわった<br>Androidアプリをお届けします。</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">7</span><span class="stat-l">Apps</span></div>
+      <div class="stat"><span class="stat-n">Android</span><span class="stat-l">Platform</span></div>
+      <div class="stat"><span class="stat-n">Osaka</span><span class="stat-l">Based</span></div>
+    </div>
+  </div>
 </section>
+
+<!-- MARQUEE -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <div class="mq-inner">
+      <span class="mq-item">Chara:Clock</span><span class="mq-sep">◆</span>
+      <span class="mq-item">DayCanvas</span><span class="mq-sep">◆</span>
+      <span class="mq-item">NekoBar</span><span class="mq-sep">◆</span>
+      <span class="mq-item">Tempo Coach</span><span class="mq-sep">◆</span>
+      <span class="mq-item">ProNoodleTimer</span><span class="mq-sep">◆</span>
+      <span class="mq-item">Re:cipe</span><span class="mq-sep">◆</span>
+      <span class="mq-item">Silent Vibe Alarm</span><span class="mq-sep">◆</span>
+    </div>
+    <div class="mq-inner" aria-hidden="true">
+      <span class="mq-item">Chara:Clock</span><span class="mq-sep">◆</span>
+      <span class="mq-item">DayCanvas</span><span class="mq-sep">◆</span>
+      <span class="mq-item">NekoBar</span><span class="mq-sep">◆</span>
+      <span class="mq-item">Tempo Coach</span><span class="mq-sep">◆</span>
+      <span class="mq-item">ProNoodleTimer</span><span class="mq-sep">◆</span>
+      <span class="mq-item">Re:cipe</span><span class="mq-sep">◆</span>
+      <span class="mq-item">Silent Vibe Alarm</span><span class="mq-sep">◆</span>
+    </div>
+  </div>
+</div>
 
 <!-- APPS -->
 <section class="apps">
-<div class="grid">
+  <div class="sec-bar rv">
+    <span class="sec-tag">Apps</span>
+    <div class="sec-line"></div>
+    <span class="sec-cnt">7 titles</span>
+  </div>
 
-<!-- CharaClock -->
-<div class="card ca">
-  <div class="inner">
-    <div class="thumb">
-      <img src="characlock1.png">
+  <div class="grid">
+
+    <!-- ── Row 1 ── -->
+
+    <!-- Chara:Clock — featured (4/6) -->
+    <div class="card ca rv">
+      <div class="inner">
+        <div class="thumb">
+          <div class="thumb-blur" style="background-image:url('characlock1.png')"></div>
+          <img src="characlock1.png" alt="Chara:Clock" style="height:100%;">
+        </div>
+        <div class="cbody">
+          <span class="feat-tag">Featured</span>
+          <div class="aname">Chara:Clock</div>
+          <div class="adesc">キャラクターで彩るカスタマイズ可能なフリップ時計アプリ。</div>
+          <a href="https://play.google.com/store/apps/details?id=com.ekamfactory.characlock"
+             target="_blank" rel="noopener" class="alink">
+            Play Store<svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="cbody">
-      <div class="aname">Chara:Clock</div>
-      <div class="adesc">キャラクターで彩るフリップ時計。</div>
-      <a class="alink" href="https://play.google.com/store/apps/details?id=com.ekamfactory.characlock">Play Store</a>
+
+    <!-- DayCanvas (2/6 tall) -->
+    <div class="card cb rv">
+      <div class="thumb" style="flex:1;">
+        <div class="thumb-blur" style="background-image:url('daycanvas1.png')"></div>
+        <img src="daycanvas1.png" alt="DayCanvas" style="height:100%;">
+      </div>
+      <div class="cbody">
+        <div class="aname">DayCanvas</div>
+        <div class="adesc">Googleカレンダー連携＋写真添付で毎日を見やすく。</div>
+        <a href="https://play.google.com/store/apps/details?id=com.ekamfactory.daycanvas"
+           target="_blank" rel="noopener" class="alink">
+          Play Store<svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- 他カード -->
-<div class="card cb">
-  <div class="thumb"><img src="daycanvas1.png"></div>
-  <div class="cbody">
-    <div class="aname">DayCanvas</div>
-    <div class="adesc">カレンダー×写真。</div>
-  </div>
-</div>
+    <!-- ── Row 2 — 3 equal ── -->
 
-<div class="card cc">
-  <div class="thumb"><img src="nekobar1.png"></div>
-  <div class="cbody">
-    <div class="aname">NekoBar</div>
-  </div>
-</div>
+    <!-- NekoBar -->
+    <div class="card cc rv">
+      <div class="thumb">
+        <div class="thumb-blur" style="background-image:url('nekobar1.png')"></div>
+        <img src="nekobar1.png" alt="NekoBar">
+      </div>
+      <div class="cbody">
+        <div class="aname">NekoBar</div>
+        <div class="adesc">猫が案内してくれる便利ユーティリティバー。</div>
+        <a href="https://play.google.com/store/apps/details?id=com.ekamfactory.catbarwalk"
+           target="_blank" rel="noopener" class="alink">
+          Play Store<svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
 
-<div class="card cc">
-  <div class="thumb"><img src="tempocoach1.png"></div>
-  <div class="cbody">
-    <div class="aname">Tempo Coach</div>
-  </div>
-</div>
+    <!-- Tempo Coach -->
+    <div class="card cc rv">
+      <div class="thumb">
+        <div class="thumb-blur" style="background-image:url('tempocoach1.png')"></div>
+        <img src="tempocoach1.png" alt="Tempo Coach">
+      </div>
+      <div class="cbody">
+        <div class="aname">Tempo Coach</div>
+        <div class="adesc">リズムとインターバルでトレーニングを最適化するタイマー。</div>
+        <a href="https://play.google.com/store/apps/details?id=com.ekamfactory.rhythmtimer"
+           target="_blank" rel="noopener" class="alink">
+          Play Store<svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
 
-<div class="card cc">
-  <div class="thumb"><img src="pronoodletimer1.png"></div>
-  <div class="cbody">
-    <div class="aname">ProNoodleTimer</div>
-  </div>
-</div>
+    <!-- ProNoodleTimer -->
+    <div class="card cc rv">
+      <div class="thumb">
+        <div class="thumb-blur" style="background-image:url('pronoodletimer1.png')"></div>
+        <img src="pronoodletimer1.png" alt="ProNoodleTimer">
+      </div>
+      <div class="cbody">
+        <div class="aname">ProNoodleTimer</div>
+        <div class="adesc">完璧な麺タイミングを実現する料理タイマー。</div>
+        <a href="https://play.google.com/store/apps/details?id=com.ekamfactory.pronoodletimer"
+           target="_blank" rel="noopener" class="alink">
+          Play Store<svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
 
-<div class="card cd">
-  <div class="thumb"><img src="recipe1.png"></div>
-  <div class="cbody">
-    <div class="aname">Re:cipe</div>
-  </div>
-</div>
+    <!-- ── Row 3 — 2 medium ── -->
 
-<div class="card cd">
-  <div class="thumb"><img src="silentvibe.jpg"></div>
-  <div class="cbody">
-    <div class="aname">Silent Vibe Alarm</div>
-  </div>
-</div>
+    <!-- Re:cipe -->
+    <div class="card cd rv">
+      <div class="thumb">
+        <div class="thumb-blur" style="background-image:url('recipe1.png')"></div>
+        <img src="recipe1.png" alt="Re:cipe">
+      </div>
+      <div class="cbody">
+        <div class="aname">Re:cipe</div>
+        <div class="adesc">AIでレシピ管理と献立作成をサポート。</div>
+        <a href="https://play.google.com/store/apps/details?id=com.ekamfactory.ai_recipe&hl=ja"
+           target="_blank" rel="noopener" class="alink">
+          Play Store<svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
 
-</div>
+    <!-- Silent Vibe Alarm -->
+    <div class="card cd rv">
+      <div class="thumb">
+        <div class="thumb-blur" style="background-image:url('silentvibe.jpg')"></div>
+        <img src="silentvibe.jpg" alt="Silent Vibe Alarm">
+      </div>
+      <div class="cbody">
+        <div class="aname">Silent Vibe Alarm</div>
+        <div class="adesc">振動だけで起こす静かな目覚ましアプリ。</div>
+        <a href="https://play.google.com/store/apps/details?id=com.ekamfactory.silentvibealarm"
+           target="_blank" rel="noopener" class="alink">
+          Play Store<svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+<footer>&copy; 2026 ekamfactory. All rights reserved.</footer>
+
+<script>
+(function(){
+
+  /* ── cursor ── */
+  var dot  = document.getElementById('cur-dot');
+  var ring = document.getElementById('cur-ring');
+  var mx=0,my=0,rx=0,ry=0;
+
+  if(dot && ring && window.matchMedia('(pointer:fine)').matches){
+    document.addEventListener('mousemove',function(e){
+      mx=e.clientX; my=e.clientY;
+      dot.style.transform='translate('+mx+'px,'+my+'px)';
+    });
+    (function raf(){
+      rx+=(mx-rx)*.11; ry+=(my-ry)*.11;
+      ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+      requestAnimationFrame(raf);
+    })();
+    document.querySelectorAll('a,.card').forEach(function(el){
+      el.addEventListener('mouseenter',function(){ring.classList.add('big');});
+      el.addEventListener('mouseleave',function(){ring.classList.remove('big');});
+    });
+  }
+
+  /* ── 3D tilt ── */
+  document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      var x=((e.clientX-r.left)/r.width -.5)*5;
+      var y=((e.clientY-r.top) /r.height-.5)*-4;
+      card.style.transform='perspective(900px) rotateX('+y+'deg) rotateY('+x+'deg)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='';
+    });
+  });
+
+  /* ── scroll reveal ── */
+  var els  = document.querySelectorAll('.rv');
+  var hero = document.querySelector('.hero-content');
+  requestAnimationFrame(function(){
+    setTimeout(function(){ hero&&hero.classList.add('on'); },100);
+  });
+
+  var obs=new IntersectionObserver(function(entries){
+    var vis=entries
+      .filter(function(e){return e.isIntersecting&&e.target!==hero;})
+      .sort(function(a,b){return a.boundingClientRect.top-b.boundingClientRect.top;});
+    vis.forEach(function(e,i){
+      setTimeout(function(){e.target.classList.add('on');},i*70);
+      obs.unobserve(e.target);
+    });
+  },{threshold:.05,rootMargin:'0px 0px -35px 0px'});
+  els.forEach(function(el){if(el!==hero)obs.observe(el);});
+
+  /* ── nav opacity on scroll ── */
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    nav.style.background=window.scrollY>60
+      ?'rgba(8,9,14,.95)'
+      :'rgba(8,9,14,.82)';
+  },{passive:true});
+
+})();
+</script>
 </body>
 </html>
