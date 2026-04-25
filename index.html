@@ -1,3 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ekamfactory | アプリ紹介</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: "Inter", sans-serif; background:#131313; color:#e5e2e1; }
+  .font-headline { font-family:"Plus Jakarta Sans",sans-serif; }
+  .glass-nav { background: rgba(19,19,19,0.4); backdrop-filter: blur(20px); }
+  a { text-decoration:none; }
+  a:hover { text-decoration:underline; }
+</style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+
+<!-- ヘッダー -->
+<nav class="fixed top-0 w-full z-50 border-b border-[#B0C6FF]/10 glass-nav shadow-2xl shadow-blue-900/10">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <div class="text-xl font-black text-[#B0C6FF] tracking-tighter uppercase font-headline">
+      ekamfactory
+    </div>
+    <div class="flex gap-6 items-center">
+      <a class="font-headline tracking-tighter font-bold uppercase text-xs text-[#B0C6FF]" href="privacy-policy.html">プライバシーポリシー</a>
+      <a class="bg-primary-container text-on-primary-container font-headline tracking-tighter font-bold uppercase text-xs px-4 py-2 rounded-md hover:bg-[#B0C6FF]/5 transition-colors" href="mailto:ekamfactory.osaka@gmail.com">お問い合わせ</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-28 max-w-7xl mx-auto px-8">
+
+  <!-- Hero -->
+  <section class="relative min-h-[400px] flex items-center justify-center text-center mb-20">
+    <div>
+      <h1 class="text-5xl md:text-7xl font-headline font-extrabold text-on-surface tracking-tighter mb-4">
+        精密に作られた<br><span class="text-primary italic">Android</span>アプリ
+      </h1>
+      <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto">
+        大阪拠点のekamfactoryでは、複雑な技術をユーティリティ性の高いアプリ体験に変換します。
+      </p>
+    </div>
+  </section>
+    
+<!-- アプリ紹介カード -->
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
   <!-- Chara:Clock -->
@@ -92,3 +138,12 @@
   </div>
 
 </section>
+
+  <!-- フッター -->
+  <footer class="mt-20 text-center py-12 text-slate-500 text-sm">
+    &copy; 2026 ekamfactory. All rights reserved.
+  </footer>
+
+</main>
+</body>
+</html>
